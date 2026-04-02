@@ -91,28 +91,19 @@ Run: `<python> /tmp/extract_alpha.py <name> <src_dir> <out_dir>`
 
 ## Generating image pairs
 
-Tell the AI to generate the same image twice with these background lines swapped:
+Generate the white version first, then use a follow-up prompt to get the black version:
 
-- First: `Solid white background, flat uniform color, no patterns`
-- Second: `Solid black background, flat uniform color, no patterns`
-
-Use the **bulleted list prompt format** (more reliable than single-paragraph):
-
+**First prompt** — include at the end of your image description:
 ```
-Game UI text graphic for [GAME DESCRIPTION]. The words "[TEXT]" rendered as a stylized 3D game title with:
-- [FONT STYLE DESCRIPTION]
-- [COLOR/GRADIENT DESCRIPTION]
-- [OUTLINE DESCRIPTION]
-- [BEVEL/HIGHLIGHT DESCRIPTION]
-- [SHADOW DESCRIPTION]
-- [DECORATIONS]
-- [MOOD/STYLE]
-- Cartoon style, NOT realistic
-- Clean and legible at small sizes
-- Solid [white/black] background, flat uniform color, no patterns
-- Centered composition, landscape orientation
-- Resolution: 1024 x 512 pixels
+- On a pure solid white #FFFFFF background
 ```
+
+**Second prompt** — tell the AI to swap the background:
+```
+Change the white background to a solid pure black #000000. Keep everything else exactly unchanged.
+```
+
+> **Tip:** See the project README for a full example prompt template.
 
 ## Notes
 
